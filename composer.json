@@ -1,5 +1,5 @@
 {
-    "name": "vladmeh/laravel-socialite-passport",
+    "name": "vladmeh/socialite-passport",
     "description": "Passport Laravel Socialite Provider",
     "type": "project",
     "license": "MIT",
