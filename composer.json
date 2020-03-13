@@ -1,0 +1,39 @@
+{
+    "name": "vladmeh/laravel-socialite-passport",
+    "description": "Passport Laravel Socialite Provider",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikhaylov.V",
+            "email": "mihailov.v@fhclub.ru"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "ext-json": "*",
+        "laravel/framework": "^7.0",
+        "laravel/socialite": "^4.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vladmeh\\Socialite\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vladmeh\\Socialite\\Tests\\" : "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vladmeh\\Socialite\\SocialiteServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}
