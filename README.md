@@ -13,8 +13,7 @@ Documentation for Socialite can be found on the [Laravel website](https://larave
 #### composer
 
 ```bash
-composer require laravel/socialite
-composer require vladmeh/socialite-passport
+composer require laravel/socialite vladmeh/socialite-passport
 ```
 
 #### config/services.php

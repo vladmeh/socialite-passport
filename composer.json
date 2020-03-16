@@ -1,8 +1,11 @@
 {
     "name": "vladmeh/socialite-passport",
+    "version": "1.0.1",
     "description": "Passport Laravel Socialite Provider",
     "type": "project",
     "license": "MIT",
+    "keywords": ["laravel", "oAuth", "Passport", "Socialite"],
+    "homepage": "https://github.com/vladmeh/socialite-passport",
     "authors": [
         {
             "name": "Mikhaylov.V",
