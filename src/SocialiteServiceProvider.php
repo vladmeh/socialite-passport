@@ -11,14 +11,6 @@ use Laravel\Socialite\Contracts\Factory;
 
 class SocialiteServiceProvider extends ServiceProvider
 {
-    public function register()
-    {
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/services.php',
-            'socialite'
-        );
-    }
-
     /**
      * Bootstrap any application services.
      *
@@ -32,16 +24,5 @@ class SocialiteServiceProvider extends ServiceProvider
             $config = config('services.passport');
             return $socialite->buildProvider(PassportProvider::class, $config);
         });
-
-        $this->registerPublishing();
-    }
-
-    private function registerPublishing()
-    {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__ . '/../config/services.php' => config_path('services.php'),
-            ], 'socialite-passport-config');
-        }
     }
 }
