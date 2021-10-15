@@ -15,7 +15,7 @@ class PassportProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state): string
     {
-        return $this->buildAuthUrlFromBase(config('socialite.passport.api_url') . '/oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase(config('services.passport.api_url') . '/oauth/authorize', $state);
     }
 
     /**
@@ -23,7 +23,7 @@ class PassportProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl(): string
     {
-        return config('socialite.passport.api_url') . '/oauth/token';
+        return config('services.passport.api_url') . '/oauth/token';
     }
 
     /**
@@ -33,7 +33,7 @@ class PassportProvider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $userUrl = config('socialite.passport.api_url') . '/api/user';
+        $userUrl = config('services.passport.api_url') . '/api/user';
 
         $response = $this->getHttpClient()->get($userUrl, [
             'headers' => [

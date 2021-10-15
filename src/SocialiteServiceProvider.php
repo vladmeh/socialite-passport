@@ -14,7 +14,7 @@ class SocialiteServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/socialite.php',
+            __DIR__ . '/../config/services.php',
             'socialite'
         );
     }
@@ -29,7 +29,7 @@ class SocialiteServiceProvider extends ServiceProvider
     {
         $socialite = $this->app->make(Factory::class);
         $socialite->extend('passport', function () use ($socialite) {
-            $config = config('socialite.passport');
+            $config = config('services.passport');
             return $socialite->buildProvider(PassportProvider::class, $config);
         });
 
@@ -40,7 +40,7 @@ class SocialiteServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/socialite.php' => config_path('socialite.php'),
+                __DIR__ . '/../config/services.php' => config_path('services.php'),
             ], 'socialite-passport-config');
         }
     }
