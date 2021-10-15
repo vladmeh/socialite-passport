@@ -1,25 +1,23 @@
 {
     "name": "vladmeh/socialite-passport",
-    "version": "1.0.1",
     "description": "Passport Laravel Socialite Provider",
-    "type": "library",
     "license": "MIT",
-    "keywords": ["laravel", "oAuth", "Passport", "Socialite"],
+    "keywords": ["Laravel", "oAuth", "Passport", "Socialite"],
     "homepage": "https://github.com/vladmeh/socialite-passport",
     "authors": [
         {
             "name": "Mikhaylov.V",
-            "email": "mihailov.v@fhclub.ru"
+            "email": "vladmeh@gmail.com"
         }
     ],
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.2",
         "ext-json": "*",
-        "laravel/framework": "^7.0",
-        "laravel/socialite": "^4.3"
+        "laravel/socialite": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0|^8.0"
+        "phpunit/phpunit": "^7.0|^8.0",
+        "orchestra/testbench": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -36,7 +34,14 @@
             "providers": [
                 "Vladmeh\\Socialite\\SocialiteServiceProvider"
             ]
+        },
+        "branch-alias": {
+            "dev-master": "1.x-dev"
         }
     },
-    "minimum-stability": "dev"
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

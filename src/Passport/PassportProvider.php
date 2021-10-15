@@ -1,25 +1,36 @@
 <?php
 
-
 namespace Vladmeh\Socialite\Passport;
 
-
+use GuzzleHttp\Exception\GuzzleException;
 use Laravel\Socialite\Two\AbstractProvider;
 use Laravel\Socialite\Two\ProviderInterface;
 use Laravel\Socialite\Two\User;
 
 class PassportProvider extends AbstractProvider implements ProviderInterface
 {
-    protected function getAuthUrl($state)
+    /**
+     * @param string $state
+     * @return string
+     */
+    protected function getAuthUrl($state): string
     {
         return $this->buildAuthUrlFromBase(config('services.passport.api_url') . '/oauth/authorize', $state);
     }
 
-    protected function getTokenUrl()
+    /**
+     * @return string
+     */
+    protected function getTokenUrl(): string
     {
         return config('services.passport.api_url') . '/oauth/token';
     }
 
+    /**
+     * @param string $token
+     * @return array|mixed
+     * @throws GuzzleException
+     */
     protected function getUserByToken($token)
     {
         $userUrl = config('services.passport.api_url') . '/api/user';
@@ -33,7 +44,11 @@ class PassportProvider extends AbstractProvider implements ProviderInterface
         return json_decode($response->getBody(), true);
     }
 
-    protected function mapUserToObject(array $user)
+    /**
+     * @param array $user
+     * @return User
+     */
+    protected function mapUserToObject(array $user): User
     {
         return (new User)->setRaw($user)->map([
             'id' => $user['id'],
@@ -42,7 +57,11 @@ class PassportProvider extends AbstractProvider implements ProviderInterface
         ]);
     }
 
-    protected function getTokenFields($code)
+    /**
+     * @param string $code
+     * @return array
+     */
+    protected function getTokenFields($code): array
     {
         return [
             'grant_type' => 'authorization_code',
