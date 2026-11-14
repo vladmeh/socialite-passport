@@ -3,7 +3,9 @@
 namespace Vladmeh\Socialite\Passport;
 
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Support\Arr;
 use Laravel\Socialite\Two\AbstractProvider;
+use Laravel\Socialite\Two\InvalidStateException;
 use Laravel\Socialite\Two\ProviderInterface;
 use Laravel\Socialite\Two\User;
 
